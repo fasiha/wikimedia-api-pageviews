@@ -66,7 +66,7 @@ function getFullURL(params) {
     }
     return finalURL;
 }
-function index(params) {
+function get(params) {
     return __awaiter(this, void 0, void 0, function* () {
         return node_fetch_1.default(getFullURL(params)).then(x => x.json()).catch(e => {
             console.error('ERROR encountered: ' + e);
@@ -74,10 +74,10 @@ function index(params) {
         });
     });
 }
-exports.index = index;
+exports.get = get;
 if (module === require.main) {
     (() => __awaiter(this, void 0, void 0, function* () {
-        const data = yield index({
+        const data = yield get({
             project: 'en.wikipedia.org',
             granularity: 'hourly',
             agent: 'user',

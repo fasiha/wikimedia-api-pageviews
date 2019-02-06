@@ -53,7 +53,7 @@ function getFullURL(params: PageviewsParams) {
   return finalURL;
 }
 
-export async function index(params: PageviewsParams) {
+export async function get(params: PageviewsParams) {
   return fetch(getFullURL(params)).then(x => x.json()).catch(e => {
     console.error('ERROR encountered: ' + e);
     throw e;
@@ -62,7 +62,7 @@ export async function index(params: PageviewsParams) {
 
 if (module === require.main) {
   (async () => {
-    const data = await index({
+    const data = await get({
       project: 'en.wikipedia.org',
       granularity: 'hourly',
       agent: 'user',
